@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181019035546) do
+ActiveRecord::Schema.define(version: 20181019043659) do
 
   create_table "pages", force: :cascade do |t|
     t.string   "title"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 20181019035546) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "sections", force: :cascade do |t|
+    t.string   "title"
+    t.string   "type"
+    t.integer  "page_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "sections", ["page_id"], name: "index_sections_on_page_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
