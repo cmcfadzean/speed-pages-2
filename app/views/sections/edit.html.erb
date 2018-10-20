@@ -2,5 +2,7 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @section %> |
-<%= link_to 'Back', sections_path %>
+<!-- /posts/:post_id/comments/:id -->
+<%= link_to 'Show', [@section.page, @section] %> |
+<!-- /posts/:post_id/comments/ -->
+<%= link_to 'Back', page_sections_path(@section.page) %>

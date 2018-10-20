@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Type</th>
+      <th>Section Type</th>
       <th>Page</th>
       <th colspan="3"></th>
     </tr>
@@ -16,11 +16,14 @@
     <% @sections.each do |section| %>
       <tr>
         <td><%= section.title %></td>
-        <td><%= section.type %></td>
+        <td><%= section.section_type %></td>
         <td><%= section.page %></td>
-        <td><%= link_to 'Show', section %></td>
-        <td><%= link_to 'Edit', edit_section_path(section) %></td>
-        <td><%= link_to 'Destroy', section, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- /posts/:post_id/comments/:id -->
+        <td><%= link_to 'Show', [section.page, section] %></td>
+        <!-- /posts/:post_id/comments/:id/edit -->
+        <td><%= link_to 'Edit', edit_page_section_path(section.page, section)%></td>
+        <!-- /posts/:post_id/comments/:id -->
+        <td><%= link_to 'Destroy', [section.page, section], :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +31,5 @@
 
 <br>
 
-<%= link_to 'New Section', new_section_path %>
+<!-- /posts/:post_id/comments/new -->
+<%= link_to 'New Section', new_page_section_path %>

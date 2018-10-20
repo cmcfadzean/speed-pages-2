@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <strong>Type:</strong>
-  <%= @section.type %>
+  <strong>Section Type:</strong>
+  <%= @section.section_type %>
 </p>
 
 <p>
@@ -15,5 +15,7 @@
   <%= @section.page %>
 </p>
 
-<%= link_to 'Edit', edit_section_path(@section) %> |
-<%= link_to 'Back', sections_path %>
+<!-- /posts/:post_id/comments/:id/edit -->
+<%= link_to 'Edit', edit_page_section_path(@section.page, @section) %> |
+<!-- /posts/:post_id/comments/ -->
+<%= link_to 'Back', page_sections_path(@section.page) %>

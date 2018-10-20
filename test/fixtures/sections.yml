@@ -2,10 +2,10 @@
 
 one:
   title: MyString
-  type: 
-  page_id: 
+  section_type:
+  page_id:
 
 two:
   title: MyString
-  type: 
-  page_id: 
+  section_type: 
+  page_id:

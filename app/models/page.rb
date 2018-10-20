@@ -1,5 +1,6 @@
 class Page < ActiveRecord::Base
-  has_many :sections
   validates :title,  :presence => true
   validates :url, :presence => true
+
+  has_many :sections
 end

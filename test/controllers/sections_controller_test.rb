@@ -18,7 +18,7 @@ class SectionsControllerTest < ActionController::TestCase
 
   test "should create section" do
     assert_difference('Section.count') do
-      post :create, section: { page_id: @section.page_id, title: @section.title, type: @section.type }
+      post :create, section: { page_id: @section.page_id, title: @section.title, section_type: @section.section_type }
     end
 
     assert_redirected_to section_path(assigns(:section))
@@ -35,7 +35,7 @@ class SectionsControllerTest < ActionController::TestCase
   end
 
   test "should update section" do
-    patch :update, id: @section, section: { page_id: @section.page_id, title: @section.title, type: @section.type }
+    patch :update, id: @section, section: { page_id: @section.page_id, title: @section.title, section_type: @section.section_type }
     assert_redirected_to section_path(assigns(:section))
   end
 
