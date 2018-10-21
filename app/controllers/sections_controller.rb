@@ -79,7 +79,7 @@ class SectionsController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     page = Page.find(params[:page_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @section = page.section.find(params[:id])
+    @section = page.sections.find(params[:id])
     @section.destroy
 
     respond_to do |format|
