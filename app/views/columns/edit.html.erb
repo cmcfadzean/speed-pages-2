@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @column %> |
-<%= link_to 'Back', columns_path %>
+<%= link_to 'Show', [@column.section.page, @column.section, @column] %> |
+<%= link_to 'Back', page_section_columns_path(@column.section.page) %>

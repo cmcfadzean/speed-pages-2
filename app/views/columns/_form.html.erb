@@ -1,4 +1,4 @@
-<%= form_for(@column) do |f| %>
+<%= form_for([@column.section.page, @column.section, @column]) do |f| %>
   <% if @column.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@column.errors.count, "error") %> prohibited this column from being saved:</h2>
@@ -18,10 +18,6 @@
   <div class="field">
     <%= f.label :width %><br>
     <%= f.text_field :width %>
-  </div>
-  <div class="field">
-    <%= f.label :section_id %><br>
-    <%= f.text_field :section_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

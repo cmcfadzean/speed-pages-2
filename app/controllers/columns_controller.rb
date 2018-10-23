@@ -4,31 +4,38 @@ class ColumnsController < ApplicationController
   # GET /columns
   # GET /columns.json
   def index
-    @columns = Column.all
+    @section = Section.find(params[:section_id])
+    @columns = @section.columns
   end
 
   # GET /columns/1
   # GET /columns/1.json
   def show
+    section = Section.find(params[:section_id])
+    @column = section.columns.find(params[:id])
   end
 
   # GET /columns/new
   def new
-    @column = Column.new
+    section = Section.find(params[:section_id])
+    @column = section.columns.build
   end
 
   # GET /columns/1/edit
   def edit
+    section = Section.find(params[:section_id])
+    @column = section.columns.find(params[:id])
   end
 
   # POST /columns
   # POST /columns.json
   def create
-    @column = Column.new(column_params)
+    section = Section.find(params[:section_id])
+    @column = section.columns.create(column_params)
 
     respond_to do |format|
       if @column.save
-        format.html { redirect_to @column, notice: 'Column was successfully created.' }
+        format.html { redirect_to [@column.section.page, @column.section, @column], notice: 'Column was successfully created.' }
         format.json { render :show, status: :created, location: @column }
       else
         format.html { render :new }
@@ -40,9 +47,12 @@ class ColumnsController < ApplicationController
   # PATCH/PUT /columns/1
   # PATCH/PUT /columns/1.json
   def update
+    section = Section.find(params[:section_id])
+    @column = section.columns.find(params[:id])
+
     respond_to do |format|
       if @column.update(column_params)
-        format.html { redirect_to @column, notice: 'Column was successfully updated.' }
+        format.html { redirect_to [@column.section.page, @column.section, @column], notice: 'Column was successfully updated.' }
         format.json { render :show, status: :ok, location: @column }
       else
         format.html { render :edit }
@@ -54,9 +64,11 @@ class ColumnsController < ApplicationController
   # DELETE /columns/1
   # DELETE /columns/1.json
   def destroy
+    section = Section.find(params[:section_id])
+    @column = section.columns.find(params[:id])
     @column.destroy
     respond_to do |format|
-      format.html { redirect_to columns_url, notice: 'Column was successfully destroyed.' }
+      format.html { redirect_to [@column.section.page, @column.section, @column], notice: 'Column was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
