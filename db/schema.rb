@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181019043659) do
+ActiveRecord::Schema.define(version: 20181023035759) do
+
+  create_table "columns", force: :cascade do |t|
+    t.string   "title"
+    t.string   "width"
+    t.integer  "section_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "columns", ["section_id"], name: "index_columns_on_section_id"
 
   create_table "pages", force: :cascade do |t|
     t.string   "title"

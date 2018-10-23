@@ -3,4 +3,5 @@ class Page < ActiveRecord::Base
   validates :url, :presence => true
 
   has_many :sections
+  has_many :columns
 end
