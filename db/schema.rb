@@ -24,10 +24,9 @@ ActiveRecord::Schema.define(version: 20181019043659) do
 
   create_table "sections", force: :cascade do |t|
     t.string   "title"
-    t.string   "section_type"
     t.integer  "page_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "sections", ["page_id"], name: "index_sections_on_page_id"

@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Section Type</th>
       <th>Page</th>
       <th colspan="3"></th>
     </tr>
@@ -16,7 +15,6 @@
     <% @sections.each do |section| %>
       <tr>
         <td><%= section.title %></td>
-        <td><%= section.section_type %></td>
         <td><%= section.page %></td>
         <!-- /posts/:post_id/comments/:id -->
         <td><%= link_to 'Show', [section.page, section] %></td>
