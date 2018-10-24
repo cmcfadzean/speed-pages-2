@@ -18,9 +18,9 @@
         <td><%= block.title %></td>
         <td><%= block.content %></td>
         <td><%= block.column %></td>
-        <td><%= link_to 'Show', block %></td>
-        <td><%= link_to 'Edit', edit_block_path(block) %></td>
-        <td><%= link_to 'Destroy', block, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', [block.column.section.page, block.column.section, block.column, block] %></td>
+        <td><%= link_to 'Edit', edit_page_section_column_block_path(block.column.section.page, block.column.section, block.column, block)%></td>
+        <td><%= link_to 'Destroy', [block.column.section.page, block.column.section, block.column, block], :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,5 @@
 
 <br>
 
-<%= link_to 'New Block', new_block_path %>
+<%= link_to 'New Block', new_page_section_column_block_path %> |
+<%= link_to 'Back', page_section_columns_path(@column.section.page, @column.section, @column) %>

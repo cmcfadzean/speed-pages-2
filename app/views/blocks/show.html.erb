@@ -15,5 +15,5 @@
   <%= @block.column %>
 </p>
 
-<%= link_to 'Edit', edit_block_path(@block) %> |
-<%= link_to 'Back', blocks_path %>
+<%= link_to 'Edit', edit_page_section_column_block_path(@block.column.section.page, @block.column.section, @block.column, @block) %> |
+<%= link_to 'Back', page_section_column_blocks_path(@block.column.section.page, @block.column.section, @block.column, @block) %>

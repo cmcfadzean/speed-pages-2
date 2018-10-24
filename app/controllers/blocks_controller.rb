@@ -35,7 +35,7 @@ class BlocksController < ApplicationController
 
     respond_to do |format|
       if @block.save
-        format.html { redirect_to [@block.column.section.page, @block.column.section, @column.column, @column], notice: 'Block was successfully created.' }
+        format.html { redirect_to [@block.column.section.page, @block.column.section, @block.column, @block], notice: 'Block was successfully created.' }
         format.json { render :show, status: :created, location: @block }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class BlocksController < ApplicationController
 
     respond_to do |format|
       if @block.update(block_params)
-        format.html { redirect_to [@block.column.section.page, @block.column.section, @column.column, @column], notice: 'Block was successfully updated.' }
+        format.html { redirect_to [@block.column.section.page, @block.column.section, @block.column, @block], notice: 'Block was successfully updated.' }
         format.json { render :show, status: :ok, location: @block }
       else
         format.html { render :edit }
