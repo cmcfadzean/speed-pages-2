@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+
   devise_for :users
+
   resources :pages do
     resources :sections do
       resources :columns do
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
       end
     end
   end
+  
   root 'pages#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

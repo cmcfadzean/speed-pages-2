@@ -4,31 +4,38 @@ class BlocksController < ApplicationController
   # GET /blocks
   # GET /blocks.json
   def index
-    @blocks = Block.all
+    @column = Column.find(params[:column_id])
+    @blocks = @column.blocks
   end
 
   # GET /blocks/1
   # GET /blocks/1.json
   def show
+    column = Column.find(params[:column_id])
+    @block = column.blocks.find(params[:id])
   end
 
   # GET /blocks/new
   def new
-    @block = Block.new
+    column = Column.find(params[:column_id])
+    @block = column.blocks.build
   end
 
   # GET /blocks/1/edit
   def edit
+    column = Column.find(params[:column_id])
+    @block = column.blocks.find(params[:id])
   end
 
   # POST /blocks
   # POST /blocks.json
   def create
-    @block = Block.new(block_params)
+    column = Column.find(params[:column_id])
+    @block = column.blocks.create(block_params)
 
     respond_to do |format|
       if @block.save
-        format.html { redirect_to @block, notice: 'Block was successfully created.' }
+        format.html { redirect_to [@block.column.section.page, @block.column.section, @column.column, @column], notice: 'Block was successfully created.' }
         format.json { render :show, status: :created, location: @block }
       else
         format.html { render :new }
@@ -40,9 +47,12 @@ class BlocksController < ApplicationController
   # PATCH/PUT /blocks/1
   # PATCH/PUT /blocks/1.json
   def update
+    column = Column.find(params[:column_id])
+    @block = column.blocks.find(params[:id])
+
     respond_to do |format|
       if @block.update(block_params)
-        format.html { redirect_to @block, notice: 'Block was successfully updated.' }
+        format.html { redirect_to [@block.column.section.page, @block.column.section, @column.column, @column], notice: 'Block was successfully updated.' }
         format.json { render :show, status: :ok, location: @block }
       else
         format.html { render :edit }
@@ -54,6 +64,8 @@ class BlocksController < ApplicationController
   # DELETE /blocks/1
   # DELETE /blocks/1.json
   def destroy
+    column = Column.find(params[:column_id])
+    @block = column.blocks.find(params[:id])
     @block.destroy
     respond_to do |format|
       format.html { redirect_to blocks_url, notice: 'Block was successfully destroyed.' }
