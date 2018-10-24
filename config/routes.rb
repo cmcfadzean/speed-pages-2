@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :pages do
     resources :sections do
-      resources :columns
+      resources :columns do
+        resources :blocks
+      end
     end
   end
   root 'pages#index'
