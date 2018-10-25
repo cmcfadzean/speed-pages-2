@@ -1,0 +1,13 @@
+<div class="main-nav">
+  <div class="row align-items-center">
+    <div class="col-sm">
+      <%= link_to pages_path, class: "main-nav-home" do %>
+        <%= image_tag("logo.svg", class: "main-nav-logo") %>
+        <span>SPEED</span>PAGES
+      <% end %>
+    </div>
+    <div class="col-sm text-right">
+      <%= render "shared/user_menu"%>
+    </div>
+  </div>
+</div>

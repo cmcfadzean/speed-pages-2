@@ -1,0 +1,17 @@
+.main-nav {
+  box-shadow: $box-shadow;
+  background: $color-dark;
+  padding: 15px 30px;
+  &-logo {
+    width: 40px;
+    margin-right: 5px;
+  }
+  &-home {
+    font-size: 16px;
+    letter-spacing: 3px;
+    color: $color-primary;
+    span {
+      font-weight: 800;
+    }
+  }
+}
