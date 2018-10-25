@@ -25,3 +25,12 @@
     }
   }
 }
+@media (max-width: $screen-sm-max) {
+  .user-menu {
+    &-toggle {
+      span {
+        display: none;
+      }
+    }
+  }
+}

@@ -10,8 +10,14 @@
     font-size: 16px;
     letter-spacing: 3px;
     color: $color-primary;
-    span {
-      font-weight: 800;
+  }
+}
+@media (max-width: $screen-sm-max) {
+  .main-nav {
+    &-home {
+      span {
+        display: none;
+      }
     }
   }
 }
