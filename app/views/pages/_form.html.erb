@@ -11,20 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="form-group">
+    <%= f.label :title, class: "form-label" %><br>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
+  <div class="form-group">
+    <%= f.label :url, class: "form-label" %><br>
+    <%= f.text_field :url, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :status %><br>
+  <div class="form-group">
+    <%= f.label :status, class: "form-label" %><br>
     <%= f.check_box :status %>
   </div>
   <%= f.hidden_field :user, value: current_user.id %>
-  <div class="actions">
+  <div class="form-action">
     <%= f.submit %>
   </div>
 <% end %>

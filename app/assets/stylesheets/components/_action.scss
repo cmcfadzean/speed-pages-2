@@ -34,9 +34,9 @@
     }
   }
   &-close {
-    background: $color-primary;
+    background: $color-dark;
     &:hover {
-      background: $color-primary;
+      background: lighten($color-dark, 5%);
     }
   }
 }

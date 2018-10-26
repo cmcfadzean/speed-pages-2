@@ -1,0 +1,40 @@
+.form {
+  &-group {
+    margin-bottom: 15px;
+  }
+  &-label {
+    font-weight: 600;
+    font-size: 13px;
+  }
+  &-control {
+    outline: none;
+    background: $color-dark;
+    border: 1px solid $color-dark;
+    color: $text-dark;
+    padding: 13px 20px;
+    height: auto;
+    &:focus {
+      background: lighten($color-dark, 3%);
+      border: 1px solid $color-dark;
+      color: $color-body;
+    }
+  }
+  &-action {
+    input {
+      @include simple-ease(all);
+      outline: none;
+      display: block;
+      width: 100%;
+      border: none;
+      background: $color-primary;
+      color: #fff;
+      padding: 13px 20px;
+      height: auto;
+      border-radius: $border-radius;
+      &:hover {
+        cursor: pointer;
+        background: darken($color-primary, 5%);
+      }
+    }
+  }
+}
