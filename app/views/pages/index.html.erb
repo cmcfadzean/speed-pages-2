@@ -1,31 +1,32 @@
-<h1>Listing Pages</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Url</th>
-      <th>Status</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pages.each do |page| %>
-      <tr>
-        <td><%= page.title %></td>
-        <td><%= page.url %></td>
-        <td><%= page.status %></td>
-        <td><%= page.user %></td>
-        <td><%= link_to 'Show', page %></td>
-        <td><%= link_to 'Edit', edit_page_path(page) %></td>
-        <td><%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="main-list col flex-fill">
+  <div class="main-list-scroller">
+    <% @pages.where(:user => current_user.id).order("updated_at desc").each do |page| %>
+      <div class="card">
+        <div class="card-status">
+          <i class="card-status-icon <%= page.status %>"></i>
+        </div>
+        <div class="card-details">
+          <%= link_to page_path(page), class: "card-title" do %>
+            <%= page.title %>
+          <% end %>
+          <p class="card-subtitle">
+            <%= time_ago_in_words(page.updated_at) %> ago
+          </p>
+        </div>
+        <div class="card-actions">
+          <%= link_to edit_page_path(page), class: "card-action" do %>
+            <i class="fa fa-pencil"></i>
+          <% end %>
+          <%= link_to page, method: :delete, data: { confirm: 'Are you sure?' }, class: "card-action" do %>
+            <i class="fa fa-close"></i>
+          <% end %>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
+  </div>
+</div>
+<div class="main-content col flex-fill">
+  
+</div>
 
 <%= link_to 'New Page', new_page_path %>

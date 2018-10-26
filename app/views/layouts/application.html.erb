@@ -8,11 +8,12 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="d-flex flex-column">
   <div class="color-bar"></div>
   <%= render "shared/main_nav"%>
-
-  <%= yield %>
+  <div class="d-flex flex-fill">
+    <%= yield %>
+  </div>
 
   <p id="notice" class="notice <%= notice ? "notice-show" : ""%>"><%= notice %></p>
   <p id="alert" class="alert <%= alert ? "alert-show" : ""%>"><%= alert %></p>

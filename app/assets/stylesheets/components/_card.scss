@@ -1,0 +1,65 @@
+.card {
+  width: 100%;
+  display: table;
+  margin: 10px 0;
+  background: $color-dark;
+  border-radius: $border-radius;
+  border: none;
+  box-shadow: $box-shadow;
+  color: #fff;
+  padding: 15px 20px;
+  &-status {
+    vertical-align: middle;
+    display: table-cell;
+    width: 30px;
+  }
+  &-details {
+    display: table-cell;
+    padding-right: 20px;
+  }
+  &-actions {
+    display: table-cell;
+    width: 40px;
+    text-align: right;
+  }
+  &-action {
+    @include simple-ease(all);
+    display: inline-block;
+    color: $text-dark;
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  &-status-icon {
+    display: inline-block;
+    margin-right: 15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: $text-dark;
+    &.true {
+      background-color: #55efc4;
+    }
+  }
+  &-title {
+    @include simple-ease(all);
+    margin-bottom: 0;
+    line-height: 1.2;
+    color: #fff;
+    &:hover {
+      color: $color-primary;
+    }
+  }
+  &-subtitle {
+    margin-top: 0px;
+    font-size: 12px;
+    color: $text-dark;
+  }
+  &:hover {
+    .card {
+      &-action {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+  }
+}
