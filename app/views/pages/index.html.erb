@@ -1,32 +1,11 @@
 <div class="main-list col flex-fill">
   <div class="main-list-scroller">
-    <% @pages.where(:user => current_user.id).order("updated_at desc").each do |page| %>
-      <div class="card">
-        <div class="card-status">
-          <i class="card-status-icon <%= page.status %>"></i>
-        </div>
-        <div class="card-details">
-          <%= link_to page_path(page), class: "card-title" do %>
-            <%= page.title %>
-          <% end %>
-          <p class="card-subtitle">
-            <%= time_ago_in_words(page.updated_at) %> ago
-          </p>
-        </div>
-        <div class="card-actions">
-          <%= link_to edit_page_path(page), class: "card-action" do %>
-            <i class="fa fa-pencil"></i>
-          <% end %>
-          <%= link_to page, method: :delete, data: { confirm: 'Are you sure?' }, class: "card-action" do %>
-            <i class="fa fa-close"></i>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
+    <%= render "page_listing", pages: @pages %>
   </div>
+  <%= link_to new_page_path, class: "action-add" do %>
+    <i class="fa fa-plus"></i>
+  <% end %>
 </div>
 <div class="main-content col flex-fill">
-  
+  <iframe src="https://www.inboundpixels.com" frameborder="0"></iframe>
 </div>
-
-<%= link_to 'New Page', new_page_path %>

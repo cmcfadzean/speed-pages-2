@@ -1,0 +1,8 @@
+.main-content {
+  background: darken($color-body, 2%);
+  padding: 0;
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+}
