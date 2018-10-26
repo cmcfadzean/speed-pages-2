@@ -1,6 +1,11 @@
-<h1>New Section</h1>
-
-<%= render 'form' %>
-
-<!-- /posts/:post_id/comments/ -->
-<%= link_to 'Back', page_sections_path(@section.page)%>
+<div class="main-list col flex-fill">
+  <div class="main-list-scroller">
+    <%= render 'form' %>
+  </div>
+  <%= link_to page_sections_path(@section.page), class: "action-close" do %>
+    <i class="fa fa-close"></i>
+  <% end %>
+</div>
+<div class="main-content col flex-fill">
+  <iframe src="https://www.inboundpixels.com" frameborder="0"></iframe>
+</div>

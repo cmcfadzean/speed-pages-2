@@ -1,0 +1,23 @@
+<%= link_to pages_path, class: "main-list-back" do %>
+  <i class="fa fa-angle-left"></i> Back
+<% end %>
+<% sections.each do |section| %>
+  <div class="card">
+    <div class="card-details">
+      <%= link_to page_section_columns_path(section.page, section), class: "card-title" do %>
+        <%= section.title %>
+      <% end %>
+      <p class="card-subtitle">
+        <%= time_ago_in_words(section.updated_at) %> ago
+      </p>
+    </div>
+    <div class="card-actions">
+      <%= link_to edit_page_section_path(section.page, section), class: "card-action" do %>
+        <i class="fa fa-pencil"></i>
+      <% end %>
+      <%= link_to [section.page, section], :confirm => 'Are you sure?', :method => :delete, class: "card-action" do %>
+        <i class="fa fa-close"></i>
+      <% end %>
+    </div>
+  </div>
+<% end %>
